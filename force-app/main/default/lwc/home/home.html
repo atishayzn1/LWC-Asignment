@@ -1,0 +1,21 @@
+<template>
+    <lightning-card>
+        <lightning-combobox
+            class="slds-m-around_small"
+            name="Account"
+            label="Enter Account Name"
+            value={selectedAccount}
+            options={options}
+            onchange={handleChange} >
+        </lightning-combobox>
+    
+    
+        <lightning-button variant="brand" class="slds-m-around_small" label="Create New Contact" onclick={handleCreateNewContact}>
+        </lightning-button>
+        <lightning-button variant="brand" class="slds-m-around_small" label="Display Account and Contacts Details" onclick={handleDisplayAccountClick}>
+        </lightning-button>
+        <template lwc:if={showModalPopup}>
+            <c-create-modal selected-account={selectedAccount} onclosepopup={popupCloseHandler}></c-create-modal>
+        </template>
+    </lightning-card>
+</template>
